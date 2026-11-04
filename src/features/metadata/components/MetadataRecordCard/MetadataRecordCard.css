@@ -1,0 +1,125 @@
+.metadata-record {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.8fr) minmax(320px, 1.2fr);
+  gap: 24px;
+  align-items: start;
+  padding: 20px;
+  border: 1px solid var(--metadata-border);
+  border-radius: 10px;
+  background: var(--metadata-surface);
+}
+
+.record-heading,
+.metadata-fields,
+.record-preview,
+.metadata-tags,
+.tag-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.record-heading {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.record-complete,
+.record-incomplete {
+  border-radius: 999px;
+  padding: 3px 8px;
+  font-size: 11px;
+}
+
+.record-complete {
+  color: #6ee7b7;
+  background: #064e3b;
+}
+
+.record-incomplete {
+  color: #fcd34d;
+  background: #713f12;
+}
+
+.preview-image {
+  display: block;
+  width: 100%;
+  max-height: 320px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: #09090b;
+}
+
+.image-dimensions {
+  color: var(--metadata-muted);
+  font: 11px var(--mono);
+}
+
+.orientation-controls,
+.date-precision {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.metadata-fields label,
+.date-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.metadata-fields input,
+.metadata-fields textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--metadata-border);
+  border-radius: 6px;
+  padding: 9px 10px;
+  color: var(--metadata-text);
+  background: var(--metadata-panel);
+  font: 13px/1.4 var(--sans);
+}
+
+.metadata-fields textarea {
+  resize: vertical;
+}
+
+.metadata-fields input[aria-invalid="true"] {
+  border-color: #fbbf24;
+}
+
+.date-field {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+.date-field legend,
+.field-label {
+  margin-bottom: 4px;
+}
+
+.date-precision button[aria-pressed="true"],
+.orientation-controls button[aria-pressed="true"] {
+  border-color: var(--metadata-accent);
+  color: var(--metadata-accent);
+}
+
+.record-operation-error {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 12px;
+}
+
+@media (max-width: 760px) {
+  .metadata-record {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+    padding: 16px;
+  }
+}

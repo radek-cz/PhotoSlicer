@@ -1,0 +1,308 @@
+{
+  "common": {
+    "loading": "Ładowanie...",
+    "language": "Język",
+    "languageChangeError": "Nie udało się zmienić języka. Spróbuj ponownie.",
+    "languageOptions": {
+      "en": "Angielski",
+      "pl": "Polski"
+    }
+  },
+  "navigation": {
+    "productName": "PhotoSlicer",
+    "productTag": "Scan Cutter",
+    "workflowLabel": "Etapy pracy",
+    "active": "Aktualny etap",
+    "completed": "Ukończono",
+    "unavailable": "Niedostępny",
+    "archives": "Zapisane archiwa",
+    "steps": {
+      "upload": "Import",
+      "regions": "Detekcja i kadrowanie",
+      "metadata": "Metadane i korekta",
+      "export": "Eksport i archiwum"
+    }
+  },
+  "errors": {
+    "eyebrow": "Coś poszło nie tak",
+    "homeLink": "Wróć do PhotoSlicer",
+    "backLink": "Wróć do poprzedniej strony",
+    "notFound": {
+      "title": "Ta strona wypadła z kadru.",
+      "description": "Nie udało się znaleźć strony. Być może została przeniesiona albo już nie istnieje."
+    },
+    "forbidden": {
+      "title": "Brak dostępu do tej strony.",
+      "description": "Nie masz uprawnień, aby ją wyświetlić."
+    },
+    "serverError": {
+      "title": "Coś poszło nie tak po naszej stronie.",
+      "description": "Wystąpił nieoczekiwany błąd. Spróbuj ponownie za chwilę."
+    },
+    "serviceUnavailable": {
+      "title": "Usługa jest chwilowo niedostępna.",
+      "description": "PhotoSlicer ma krótką przerwę. Spróbuj ponownie za chwilę."
+    }
+  },
+  "archives": {
+    "eyebrow": "Lokalna biblioteka",
+    "title": "Zapisane archiwa",
+    "description": "Sesje zapisane na tym urządzeniu. Pobrany plik ZIP nie jest zapisywany automatycznie.",
+    "empty": "Nie zapisano jeszcze żadnego archiwum.",
+    "loadError": "Nie udało się wczytać zapisanego archiwum.",
+    "downloadError": "Nie udało się pobrać archiwum.",
+    "savedAt": "Zapisano",
+    "delete": "Usuń zapis",
+    "deleting": "Usuwanie...",
+    "deleteConfirmation": "Usunąć lokalnie zapisaną sesję „{filename}”? Pobranego pliku ZIP to nie usunie.",
+    "deleteError": "Nie udało się usunąć zapisanej sesji.",
+    "deleteSafeNote": "Usunięcie kasuje tylko wybraną sesję z lokalnego archiwum PhotoSlicer. Pobrany plik ZIP i bieżąca praca pozostają bez zmian."
+  },
+  "home": {
+    "eyebrow": "PhotoSlicer · przepływ pracy",
+    "title": "Od skanu do archiwum",
+    "description": "Przygotuj zdjęcia do archiwizacji: zaimportuj skany, sprawdź wykryte obszary, dodaj metadane i pobierz gotowe wycinki.",
+    "importCta": "Przejdź do importu",
+    "capabilitiesLabel": "Etapy przygotowania zdjęć",
+    "capabilities": {
+      "import": {
+        "title": "Import obrazów",
+        "description": "Wybierz pliki PNG lub JPEG albo przeciągnij je do pola importu."
+      },
+      "detection": {
+        "title": "Wykrywanie i kadrowanie",
+        "description": "Aplikacja proponuje obszary zdjęć, które możesz przejrzeć i poprawić."
+      },
+      "metadata": {
+        "title": "Metadane i korekta",
+        "description": "Dodaj tytuł i opis do wycinków oraz obróć je w razie potrzeby."
+      },
+      "storage": {
+        "title": "Eksport i archiwum",
+        "description": "Pobierz przygotowane wycinki jako plik ZIP i opcjonalnie zapisz sesję lokalnie."
+      }
+    },
+    "importTitle": "Wybierz zdjęcia do importu",
+    "importDescription": "Obsługiwane są pliki PNG i JPEG. Możesz wybrać kilka zdjęć naraz.",
+    "localProcessing": "Analiza obrazów i przygotowanie wycinków odbywa się lokalnie w przeglądarce.",
+    "archivesCta": "Przejdź do zapisanych archiwów",
+    "workQueueTitle": "Kolejka robocza",
+    "workQueueDescription": "Kopie robocze są przechowywane lokalnie i usuwane po godzinie bezczynności. Wyłączenie zapisu usuwa wszystkie zapisane kopie.",
+    "workQueueToggle": "Zapisuj kopie robocze",
+    "workQueueSettingError": "Nie udało się zmienić ustawienia kopii roboczych.",
+    "workQueueEmpty": "Nie ma żadnych zapisanych draftów.",
+    "workQueueDisabled": "Zapisywanie kopii roboczych jest wyłączone.",
+    "workQueueLoadError": "Nie udało się wczytać kolejki roboczej.",
+    "workQueueDeleteError": "Nie udało się usunąć kopii roboczej.",
+    "workQueueMoreFiles": "i {count} więcej",
+    "workQueueStep": "Ostatni dostępny etap: {step}",
+    "workQueueUpdated": "Ostatnia aktywność: {date}",
+    "workQueueExpiresIn": "Pozostały czas: {time}",
+    "resumeDraft": "Wznów draft: {filename}",
+    "deleteDraft": "Usuń draft: {filename}"
+  },
+  "image": {
+    "number": "Obraz {index}",
+    "region": "Region {regionId} z obrazu {imageIndex}",
+    "upload": {
+      "label": "Wybierz obrazy PNG lub JPEG",
+      "dropHint": "Przeciągnij i upuść zdjęcia tutaj",
+      "dropActive": "Upuść zdjęcia, aby rozpocząć import",
+      "browseHint": "lub kliknij, aby wybrać pliki",
+      "loading": "Wczytywanie obrazów...",
+      "error": "Nie udało się wczytać części wybranych obrazów.",
+      "unsupportedError": "Nieobsługiwane pliki pominięto. Wybierz pliki PNG lub JPEG.",
+      "queueLabel": "Kolejka importu",
+      "selectedCount_one": "Wybrano {formatted} plik",
+      "selectedCount_few": "Wybrano {formatted} pliki",
+      "selectedCount_many": "Wybrano {formatted} plików",
+      "selectedCount_other": "Wybrano {formatted} pliku",
+      "remove": "Usuń",
+      "removeFile": "Usuń plik {filename} z kolejki",
+      "importAction": "Rozpocznij import"
+    },
+    "metadata": {
+      "eyebrow": "Katalogowanie archiwalne · rejestracja metadanych",
+      "heading": "Krok 3: Indeksowanie metadanych i korekta orientacji",
+      "totalCount_one": "Wszystkie {formatted} rekord",
+      "totalCount_few": "Wszystkie {formatted} rekordy",
+      "totalCount_many": "Wszystkie {formatted} rekordów",
+      "totalCount_other": "Wszystkie {formatted} rekordy",
+      "progressLabel": "Postęp rekordów",
+      "progressValue": "{complete} / {total} gotowych ({percent}%)",
+      "filters": {
+        "label": "Filtrowanie rekordów metadanych",
+        "heading": "Filtr:",
+        "all": "Wszystkie ({count})",
+        "incomplete": "Niekompletne ({count})",
+        "complete": "Gotowe ({count})"
+      },
+      "rotateAll": "Obróć wszystkie rekordy +90°",
+      "resetAll": "Zeruj orientację wszystkich",
+      "confirmResetOne": "Zerować obrót i odbicie tego kadru?",
+      "confirmResetAll": "Zerować obrót i odbicie wszystkich {formatted} rekordów? Metadane pozostaną bez zmian.",
+      "operationProgress": "Zmiana orientacji: {current} z {total}",
+      "operationFailedCount_one": "Nie udało się zmienić orientacji {formatted} rekordu.",
+      "operationFailedCount_few": "Nie udało się zmienić orientacji {formatted} rekordów.",
+      "operationFailedCount_many": "Nie udało się zmienić orientacji {formatted} rekordów.",
+      "operationFailedCount_other": "Nie udało się zmienić orientacji {formatted} rekordów.",
+      "bulkFailure": "Niektórych orientacji nie udało się zmienić. Ponów próbę na oznaczonych rekordach.",
+      "retry": "Ponów",
+      "recordsLabel": "Rekordy metadanych kadrów",
+      "noFilterResults": "Brak rekordów pasujących do filtra.",
+      "noRecords": "Brak dostępnych kadrów.",
+      "completeRequired": "Dodaj tytuł do każdego kadru, aby przejść do eksportu.",
+      "continue_one": "Zaakceptuj i przejdź do eksportu ({formatted} zdjęcie gotowe)",
+      "continue_few": "Zaakceptuj i przejdź do eksportu ({formatted} zdjęcia gotowe)",
+      "continue_many": "Zaakceptuj i przejdź do eksportu ({formatted} zdjęć gotowych)",
+      "continue_other": "Zaakceptuj i przejdź do eksportu ({formatted} zdjęć gotowych)",
+      "recordHeading": "Obraz {imageIndex} · kadr {regionId}",
+      "status": {
+        "complete": "Gotowy",
+        "incomplete": "Brak tytułu"
+      },
+      "dimensionsLoading": "Odczytywanie wymiarów…",
+      "dimensions": "{width} × {height} px",
+      "orientation": {
+        "label": "Orientacja obrazu",
+        "left": "−90°",
+        "right": "+90°",
+        "halfTurn": "180°",
+        "flip": "Lustro",
+        "reset": "Zeruj",
+        "leftLabel": "Obróć w lewo o 90 stopni",
+        "rightLabel": "Obróć w prawo o 90 stopni",
+        "halfTurnLabel": "Obróć o 180 stopni",
+        "flipLabel": "Przełącz odbicie poziome",
+        "resetLabel": "Zeruj obrót i odbicie"
+      },
+      "save": "Zapisz",
+      "loading": "Wczytywanie obrazów...",
+      "loadError": "Nie udało się wczytać obrazów.",
+      "rotateError": "Nie udało się zmienić orientacji obrazu.",
+      "imageHeading": "Obraz {index}",
+      "regionHeading": "Region {regionId} z obrazu {imageIndex}",
+      "previewAlt": "Podgląd regionu {regionId} z obrazu {imageIndex}",
+      "title": "Tytuł fotografii",
+      "description": "Opis / transkrypcja rewersu",
+      "date": {
+        "label": "Datowanie obiektu",
+        "exact": "Dokładna data",
+        "year": "Rok",
+        "decade": "Dekada",
+        "placeholder": {
+          "exact": "RRRR-MM-DD",
+          "year": "RRRR",
+          "decade": "np. 1950"
+        }
+      },
+      "tags": {
+        "people": "Osoby",
+        "locations": "Lokalizacje",
+        "topics": "Tematy",
+        "add": "Dodaj",
+        "addPerson": "Dodaj tag osoby",
+        "addLocation": "Dodaj tag lokalizacji",
+        "addTopic": "Dodaj tag tematu",
+        "remove": "Usuń tag {tag}"
+      },
+      "rotate": "Obróć o 90° (obecnie: {rotation}°)",
+      "rotating": "Obracanie..."
+    },
+    "regions": {
+      "empty": "Nie wczytano żadnego obrazu!",
+      "accept": "Zatwierdź",
+      "previous": "Poprzedni",
+      "next": "Następny",
+      "generate": "Generuj podglądy",
+      "previewTitle": "Podgląd wycinków",
+      "previewError": "Nie udało się wygenerować podglądów wycinków.",
+      "previewLoading": "Przygotowywanie podglądów wycinków...",
+      "previewAlt": "Podgląd wycinka {index}",
+      "add": "Dodaj nowy region",
+      "deleteRegion": "Usuń region {index}",
+      "deleteConfirmation": "Czy na pewno usunąć ten region?",
+      "detectedCount": "Wykryte zdjęcia: {count}",
+      "imageError": "Nie udało się wczytać skanu.",
+      "regionLabel": "Region #{index}",
+      "save": {
+        "saving": "Zapisywanie zmian...",
+        "saved": "Zapisano",
+        "error": "Nie udało się zapisać zmian regionów."
+      },
+      "backToImport": "Wróć do importu",
+      "batchStatus": "Stan partii:",
+      "batchItem": "Skan {current} ({count} kadrów)",
+      "batchItem_one": "Skan {current} ({count} kadr)",
+      "batchItem_few": "Skan {current} ({count} kadry)",
+      "batchItem_many": "Skan {current} ({count} kadrów)",
+      "batchItem_other": "Skan {current} ({count} kadrów)",
+      "complete": "Zaakceptuj kadry i przejdź do metadanych (Razem: {count} zdjęć)",
+      "complete_one": "Zaakceptuj kadry i przejdź do metadanych (Razem: {count} zdjęcie)",
+      "complete_few": "Zaakceptuj kadry i przejdź do metadanych (Razem: {count} zdjęcia)",
+      "complete_many": "Zaakceptuj kadry i przejdź do metadanych (Razem: {count} zdjęć)",
+      "complete_other": "Zaakceptuj kadry i przejdź do metadanych (Razem: {count} zdjęć)",
+      "attribution": "PhotoSlicer — lokalne przetwarzanie skanów",
+      "toolbarLabel": "Pasek narzędzi edytora skanu",
+      "scanProgress": "Skan {current} z {total}",
+      "size": "{width} × {height} px",
+      "viewControlsLabel": "Kontrole widoku płótna",
+      "view": {
+        "fit": "Dopasuj",
+        "zoomOut": "Pomniejsz",
+        "zoomValue": "{value}",
+        "zoomIn": "Powiększ",
+        "zoomReset": "Powiększenie 100%",
+        "grid": "Siatka"
+      },
+      "canvasLabel": "Płótno do edycji regionów"
+    },
+    "gallery": {
+      "imageAlt": "Obraz {index}",
+      "showImage": "Pokaż obraz {index}"
+    }
+  },
+  "workflow": {
+    "title": "Generuj wycinki",
+    "draftLoadError": "Nie udało się odtworzyć lokalnej pracy. Wybierz obrazy ponownie, aby rozpocząć nową sesję.",
+    "draftSaveError": "Nie udało się zapisać lokalnej pracy. Odświeżenie strony może spowodować utratę postępów.",
+    "draftExpired": "Kopia robocza wygasła po godzinie bezczynności i została usunięta.",
+    "draftExpiresIn": "Do wygaśnięcia kopii roboczej: {time}",
+    "export": {
+      "eyebrow": "Etap końcowy · eksport",
+      "title": "Zakończenie archiwizacji i eksport pakietu",
+      "description": "Wygeneruj ZIP z pełnowymiarowymi kadrami, metadanymi każdego kadru i przeszukiwalnym indeksem tekstowym.",
+      "backToMetadata": "Wróć do edycji metadanych",
+      "generating": "Przygotowywanie kadrów i generowanie archiwum ZIP…",
+      "generateError": "Nie udało się wygenerować archiwum. Twoje kadry i metadane pozostały dostępne.",
+      "retry": "Ponów generowanie",
+      "ready": "Archiwum ZIP jest gotowe do pobrania.",
+      "filename": "Nazwa pliku",
+      "crops": "Liczba kadrów",
+      "fileSize": "Rozmiar pliku",
+      "packageTitle": "Kompletny pakiet offline",
+      "packageDescription": "Pobierz kadry w pełnej rozdzielczości wraz z metadanymi JSON i przeszukiwalnym indeksem. Plik ZIP możesz zachować i otworzyć offline.",
+      "download": "Pobierz kompletny pakiet ZIP",
+      "downloadError": "Nie udało się rozpocząć pobierania. Spróbuj ponownie.",
+      "storageTitle": "Trwały zapis w przeglądarce",
+      "storageDescription": "Zapisz sesję w pamięci tej przeglądarki na tym urządzeniu, aby wrócić do niej później bez ponownego importowania i kadrowania zdjęć.",
+      "saveSession": "Zapisz sesję w przeglądarce",
+      "manageArchives": "Zarządzanie biblioteką lokalną",
+      "manageArchivesDescription": "Przeglądaj wcześniej zapisane sesje i wracaj do nich w tej przeglądarce.",
+      "manageArchivesCta": "Przejdź do zapisanych archiwów",
+      "saving": "Zapisywanie sesji…",
+      "saved": "Sesja zapisana",
+      "savedNotice": "Sesja została zapisana w lokalnej bibliotece.",
+      "saveError": "Nie udało się zapisać sesji w lokalnym archiwum. Zwolnij miejsce lub spróbuj ponownie."
+    }
+  },
+  "panel": {
+    "collapse": "Zwiń panel",
+    "expand": "Rozwiń panel"
+  },
+  "photo": {
+    "inputLabel": "Dane obrazu",
+    "submit": "Wyświetl obraz",
+    "imageAlt": "Przesłany obraz"
+  }
+}

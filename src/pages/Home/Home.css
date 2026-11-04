@@ -1,0 +1,172 @@
+.home-page {
+  width: min(1040px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 48px 0 36px;
+  text-align: left;
+}
+
+.home-page__hero {
+  max-width: 760px;
+}
+
+.home-page__eyebrow {
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.home-page__hero h1 {
+  margin: 12px 0 16px;
+  font-size: clamp(36px, 6vw, 64px);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.home-page__intro {
+  max-width: 680px;
+  font-size: 18px;
+}
+
+.home-page__primary-link {
+  display: inline-flex;
+  margin-top: 24px;
+  padding: 11px 16px;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 650;
+  text-decoration: none;
+  transition: filter 0.2s ease;
+}
+
+.home-page__primary-link:hover {
+  filter: brightness(1.12);
+}
+
+.home-page__primary-link:focus-visible,
+.home-page__archives-link a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.home-page__capabilities {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 52px;
+}
+
+.home-page__capability-card {
+  min-height: 168px;
+}
+
+.home-page__card-number {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+.home-page__capability-card h2 {
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.home-page__capability-card p {
+  font-size: 14px;
+}
+
+.home-page__import {
+  margin-top: 36px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--social-bg);
+}
+
+.home-page__import h2 {
+  margin-bottom: 8px;
+}
+
+.home-page__import > p {
+  font-size: 14px;
+}
+
+.home-page__local-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.home-page__local-mark {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #16a34a;
+}
+
+.home-page__archives-link {
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+.home-page__archives-link a {
+  color: var(--accent);
+}
+
+@media (max-width: 800px) {
+  .home-page {
+    padding-top: 32px;
+  }
+
+  .home-page__capabilities {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 36px;
+  }
+}
+
+@media (max-width: 520px) {
+  .home-page {
+    width: calc(100% - 28px);
+    padding-top: 24px;
+  }
+
+  .home-page__intro {
+    font-size: 16px;
+  }
+
+  .home-page__capabilities {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 28px;
+  }
+
+  .home-page__capability-card {
+    min-height: 0;
+  }
+
+  .home-page__card-number {
+    margin-bottom: 8px;
+  }
+
+  .home-page__import {
+    margin-top: 24px;
+    padding: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-page__primary-link {
+    transition: none;
+  }
+}

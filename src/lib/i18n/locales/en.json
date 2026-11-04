@@ -1,0 +1,308 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "language": "Language",
+    "languageChangeError": "Couldn't change the language. Please try again.",
+    "languageOptions": {
+      "en": "English",
+      "pl": "Polish"
+    }
+  },
+  "navigation": {
+    "productName": "PhotoSlicer",
+    "productTag": "Scan Cutter",
+    "workflowLabel": "Workflow stages",
+    "active": "Current step",
+    "completed": "Completed",
+    "unavailable": "Unavailable",
+    "archives": "Saved archives",
+    "steps": {
+      "upload": "Import",
+      "regions": "Detection & cropping",
+      "metadata": "Metadata & correction",
+      "export": "Export & archive"
+    }
+  },
+  "errors": {
+    "eyebrow": "Something went wrong",
+    "homeLink": "Back to PhotoSlicer",
+    "backLink": "Go back",
+    "notFound": {
+      "title": "This page went off the frame.",
+      "description": "We couldn't find the page you're looking for. It may have moved or no longer exists."
+    },
+    "forbidden": {
+      "title": "This page is out of bounds.",
+      "description": "You don't have permission to view this page."
+    },
+    "serverError": {
+      "title": "Something went wrong on our end.",
+      "description": "An unexpected error occurred. Please try again in a moment."
+    },
+    "serviceUnavailable": {
+      "title": "The service is taking a break.",
+      "description": "PhotoSlicer is temporarily unavailable. Please try again shortly."
+    }
+  },
+  "archives": {
+    "eyebrow": "Local library",
+    "title": "Saved archives",
+    "description": "Sessions saved on this device. Downloading a ZIP does not save a session automatically.",
+    "empty": "No archives have been saved yet.",
+    "loadError": "Couldn't load the saved archive.",
+    "downloadError": "Couldn't download the archive.",
+    "savedAt": "Saved",
+    "delete": "Delete saved session",
+    "deleting": "Deleting...",
+    "deleteConfirmation": "Delete the locally saved session “{filename}”? This will not remove a downloaded ZIP.",
+    "deleteError": "Couldn't delete the saved session.",
+    "deleteSafeNote": "Deleting removes only the selected session from PhotoSlicer's local archive. Downloaded ZIP files and your current work are unchanged."
+  },
+  "home": {
+    "eyebrow": "PhotoSlicer · workflow",
+    "title": "From scan to archive",
+    "description": "Prepare photos for archiving: import scans, review detected regions, add metadata, and download the finished slices.",
+    "importCta": "Go to import",
+    "capabilitiesLabel": "Photo preparation workflow",
+    "capabilities": {
+      "import": {
+        "title": "Image import",
+        "description": "Choose PNG or JPEG files, or drag them into the import area."
+      },
+      "detection": {
+        "title": "Detection and cropping",
+        "description": "The app suggests photo regions for you to review and adjust."
+      },
+      "metadata": {
+        "title": "Metadata and correction",
+        "description": "Add a title and description to slices, and rotate them if needed."
+      },
+      "storage": {
+        "title": "Export and archive",
+        "description": "Download prepared slices as a ZIP and optionally save the session locally."
+      }
+    },
+    "importTitle": "Choose photos to import",
+    "importDescription": "PNG and JPEG files are supported. You can choose multiple photos at once.",
+    "localProcessing": "Image analysis and slice preparation run locally in your browser.",
+    "archivesCta": "Go to saved archives",
+    "workQueueTitle": "Work queue",
+    "workQueueDescription": "Work drafts are stored locally and removed after one hour of inactivity. Disabling saving deletes all saved drafts.",
+    "workQueueToggle": "Save work drafts",
+    "workQueueSettingError": "Couldn't update the work draft setting.",
+    "workQueueEmpty": "There are no saved drafts.",
+    "workQueueDisabled": "Saving work drafts is disabled.",
+    "workQueueLoadError": "Couldn't load the work queue.",
+    "workQueueDeleteError": "Couldn't delete the work draft.",
+    "workQueueMoreFiles": "and {count} more",
+    "workQueueStep": "Last available step: {step}",
+    "workQueueUpdated": "Last activity: {date}",
+    "workQueueExpiresIn": "Time remaining: {time}",
+    "resumeDraft": "Resume draft: {filename}",
+    "deleteDraft": "Delete draft: {filename}"
+  },
+  "image": {
+    "number": "Image {index}",
+    "region": "Region {regionId} from image {imageIndex}",
+    "upload": {
+      "label": "Choose PNG or JPEG images",
+      "dropHint": "Drag and drop photos here",
+      "dropActive": "Drop photos to start importing",
+      "browseHint": "or click to choose files",
+      "loading": "Loading images...",
+      "error": "Some selected images couldn't be imported.",
+      "unsupportedError": "Unsupported files were skipped. Choose PNG or JPEG files.",
+      "queueLabel": "Import queue",
+      "selectedCount_one": "{formatted} file selected",
+      "selectedCount_few": "{formatted} files selected",
+      "selectedCount_many": "{formatted} files selected",
+      "selectedCount_other": "{formatted} files selected",
+      "remove": "Remove",
+      "removeFile": "Remove {filename} from the queue",
+      "importAction": "Start import"
+    },
+    "metadata": {
+      "eyebrow": "Archival cataloguing · metadata registration",
+      "heading": "Step 3: Metadata indexing & orientation correction",
+      "totalCount_one": "All {formatted} crop record",
+      "totalCount_few": "All {formatted} crop records",
+      "totalCount_many": "All {formatted} crop records",
+      "totalCount_other": "All {formatted} crop records",
+      "progressLabel": "Record completion",
+      "progressValue": "{complete} / {total} complete ({percent}%)",
+      "filters": {
+        "label": "Filter metadata records",
+        "heading": "Filter:",
+        "all": "All ({count})",
+        "incomplete": "Incomplete ({count})",
+        "complete": "Complete ({count})"
+      },
+      "rotateAll": "Rotate all records +90°",
+      "resetAll": "Reset all orientations",
+      "confirmResetOne": "Reset this crop's rotation and mirror orientation?",
+      "confirmResetAll": "Reset rotation and mirror orientation for all {formatted} records? Metadata will be kept.",
+      "operationProgress": "Orientation update: {current} of {total}",
+      "operationFailedCount_one": "{formatted} record failed.",
+      "operationFailedCount_few": "{formatted} records failed.",
+      "operationFailedCount_many": "{formatted} records failed.",
+      "operationFailedCount_other": "{formatted} records failed.",
+      "bulkFailure": "Some orientation changes failed. Retry them on the affected records.",
+      "retry": "Retry",
+      "recordsLabel": "Crop metadata records",
+      "noFilterResults": "No records match this filter.",
+      "noRecords": "No crop records are available.",
+      "completeRequired": "Add a title to every crop before continuing to export.",
+      "continue_one": "Continue to export ({formatted} crop ready)",
+      "continue_few": "Continue to export ({formatted} crops ready)",
+      "continue_many": "Continue to export ({formatted} crops ready)",
+      "continue_other": "Continue to export ({formatted} crops ready)",
+      "recordHeading": "Image {imageIndex} · crop {regionId}",
+      "status": {
+        "complete": "Complete",
+        "incomplete": "Needs title"
+      },
+      "dimensionsLoading": "Reading dimensions…",
+      "dimensions": "{width} × {height} px",
+      "orientation": {
+        "label": "Image orientation",
+        "left": "−90°",
+        "right": "+90°",
+        "halfTurn": "180°",
+        "flip": "Mirror",
+        "reset": "Reset",
+        "leftLabel": "Rotate left 90 degrees",
+        "rightLabel": "Rotate right 90 degrees",
+        "halfTurnLabel": "Rotate 180 degrees",
+        "flipLabel": "Toggle horizontal mirror",
+        "resetLabel": "Reset rotation and mirror"
+      },
+      "save": "Save",
+      "loading": "Loading images...",
+      "loadError": "Failed to load images.",
+      "rotateError": "Could not update image orientation.",
+      "imageHeading": "Image {index}",
+      "regionHeading": "Region {regionId} from image {imageIndex}",
+      "previewAlt": "Preview of region {regionId} from image {imageIndex}",
+      "title": "Photo title",
+      "description": "Description / reverse transcription",
+      "date": {
+        "label": "Object date",
+        "exact": "Exact date",
+        "year": "Year",
+        "decade": "Decade",
+        "placeholder": {
+          "exact": "YYYY-MM-DD",
+          "year": "YYYY",
+          "decade": "e.g. 1950"
+        }
+      },
+      "tags": {
+        "people": "People",
+        "locations": "Locations",
+        "topics": "Topics",
+        "add": "Add",
+        "addPerson": "Add a person tag",
+        "addLocation": "Add a location tag",
+        "addTopic": "Add a topic tag",
+        "remove": "Remove tag {tag}"
+      },
+      "rotate": "Rotate 90° (current: {rotation}°)",
+      "rotating": "Rotating..."
+    },
+    "regions": {
+      "empty": "No image uploaded!",
+      "accept": "Accept",
+      "previous": "Previous",
+      "next": "Next",
+      "generate": "Generate previews",
+      "previewTitle": "Preview images",
+      "previewError": "Couldn't generate slice previews.",
+      "previewLoading": "Preparing slice previews...",
+      "previewAlt": "Preview of slice {index}",
+      "add": "Add new region",
+      "deleteRegion": "Delete region {index}",
+      "deleteConfirmation": "Are you sure you want to delete this region?",
+      "detectedCount": "Detected photos: {count}",
+      "imageError": "Couldn't load the scan.",
+      "regionLabel": "Region #{index}",
+      "save": {
+        "saving": "Saving changes...",
+        "saved": "Changes saved",
+        "error": "Couldn't save region changes."
+      },
+      "backToImport": "Back to import",
+      "batchStatus": "Batch status:",
+      "batchItem": "Scan {current} ({count} crops)",
+      "batchItem_one": "Scan {current} ({count} crop)",
+      "batchItem_few": "Scan {current} ({count} crops)",
+      "batchItem_many": "Scan {current} ({count} crops)",
+      "batchItem_other": "Scan {current} ({count} crops)",
+      "complete_one": "Accept crops and continue to metadata (Total: {count} photo)",
+      "complete_few": "Accept crops and continue to metadata (Total: {count} photos)",
+      "complete_many": "Accept crops and continue to metadata (Total: {count} photos)",
+      "complete": "Accept crops and continue to metadata (Total: {count} photos)",
+      "complete_other": "Accept crops and continue to metadata (Total: {count} photos)",
+      "attribution": "PhotoSlicer — client-side offline scan processor",
+      "toolbarLabel": "Scan editor toolbar",
+      "scanProgress": "Scan {current} of {total}",
+      "size": "{width} × {height} px",
+      "viewControlsLabel": "Canvas view controls",
+      "view": {
+        "fit": "Fit",
+        "zoomOut": "Zoom out",
+        "zoomValue": "{value}",
+        "zoomIn": "Zoom in",
+        "zoomReset": "100% zoom",
+        "grid": "Grid"
+      },
+      "canvasLabel": "Region editing canvas"
+    },
+    "gallery": {
+      "imageAlt": "Image {index}",
+      "showImage": "Show image {index}"
+    }
+  },
+  "workflow": {
+    "title": "Generate slices",
+    "draftLoadError": "Couldn't restore your local work. Choose your images again to start a new session.",
+    "draftSaveError": "Couldn't save your local work. Refreshing the page may lose your progress.",
+    "draftExpired": "The work draft expired after one hour of inactivity and was deleted.",
+    "draftExpiresIn": "Work draft expires in: {time}",
+    "export": {
+      "eyebrow": "Final stage · export",
+      "title": "Finish archiving and export your package",
+      "description": "Generate a ZIP with full-resolution crops, metadata for every crop, and a searchable text index.",
+      "backToMetadata": "Return to metadata editing",
+      "generating": "Preparing crops and generating the ZIP archive…",
+      "generateError": "Couldn't generate the archive. Your crops and metadata are still available.",
+      "retry": "Retry generation",
+      "ready": "Your ZIP archive is ready to download.",
+      "filename": "Filename",
+      "crops": "Crop count",
+      "fileSize": "File size",
+      "packageTitle": "Complete offline package",
+      "packageDescription": "Download full-resolution crops with their JSON metadata and searchable index. Keep the ZIP to store and open it offline.",
+      "download": "Download complete ZIP package",
+      "downloadError": "Couldn't start the download. Please try again.",
+      "storageTitle": "Persistent browser storage",
+      "storageDescription": "Store your session in this browser on this device so you can return to it later without re-importing or cropping the photos.",
+      "saveSession": "Save session in this browser",
+      "manageArchives": "Manage local library",
+      "manageArchivesDescription": "Browse sessions saved earlier and return to them in this browser.",
+      "manageArchivesCta": "Go to saved archives",
+      "saving": "Saving session…",
+      "saved": "Session saved",
+      "savedNotice": "The session has been saved to your local library.",
+      "saveError": "Couldn't save the session to the local archive. Free up storage or try again."
+    }
+  },
+  "panel": {
+    "collapse": "Collapse panel",
+    "expand": "Expand panel"
+  },
+  "photo": {
+    "inputLabel": "Image data",
+    "submit": "Display image",
+    "imageAlt": "Submitted image"
+  }
+}

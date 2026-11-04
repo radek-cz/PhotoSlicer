@@ -1,0 +1,22 @@
+.metadata-filters,
+.metadata-filter-list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.metadata-filters {
+  flex-wrap: wrap;
+  color: var(--metadata-muted);
+}
+
+.metadata-filter-list {
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.metadata-filter-list button[aria-pressed="true"] {
+  border-color: var(--metadata-accent);
+  background: #29233a;
+  color: var(--metadata-text);
+}

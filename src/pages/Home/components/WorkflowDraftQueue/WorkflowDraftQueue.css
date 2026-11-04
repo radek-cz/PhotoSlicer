@@ -1,0 +1,164 @@
+.workflow-draft-queue {
+  margin-top: 36px;
+}
+
+.workflow-draft-queue > h2 {
+  margin-bottom: 8px;
+}
+
+.workflow-draft-queue > p {
+  font-size: 14px;
+}
+
+.workflow-draft-queue__setting {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.workflow-draft-queue__setting input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+.workflow-draft-queue__switch {
+  position: relative;
+  width: 42px;
+  height: 24px;
+  flex: 0 0 auto;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: #d1d5db;
+  transition: background-color 0.2s ease;
+}
+
+.workflow-draft-queue__switch::after {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  content: "";
+  transition: transform 0.2s ease;
+}
+
+.workflow-draft-queue__setting input:checked + .workflow-draft-queue__switch {
+  background: var(--accent);
+}
+
+.workflow-draft-queue__setting
+  input:checked
+  + .workflow-draft-queue__switch::after {
+  transform: translateX(18px);
+}
+
+.workflow-draft-queue__setting input:focus-visible + .workflow-draft-queue__switch {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.workflow-draft-queue__setting input:disabled + .workflow-draft-queue__switch {
+  opacity: 0.6;
+}
+
+.workflow-draft-queue__list {
+  display: grid;
+  gap: 10px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.workflow-draft-queue__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--social-bg);
+}
+
+.workflow-draft-queue__details {
+  min-width: 0;
+}
+
+.workflow-draft-queue__details h3 {
+  overflow: hidden;
+  margin: 0;
+  font-size: 15px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.workflow-draft-queue__details p {
+  margin: 5px 0 0;
+  color: var(--text);
+  font-size: 13px;
+}
+
+.workflow-draft-queue__actions {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 8px;
+}
+
+.workflow-draft-queue__resume,
+.workflow-draft-queue__delete {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.workflow-draft-queue__resume:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.workflow-draft-queue__delete {
+  color: #dc2626;
+}
+
+.workflow-draft-queue__delete:hover:not(:disabled) {
+  border-color: #dc2626;
+  background: #dc2626;
+  color: #fff;
+}
+
+.workflow-draft-queue__resume:focus-visible,
+.workflow-draft-queue__delete:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.workflow-draft-queue__delete:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .workflow-draft-queue__switch,
+  .workflow-draft-queue__switch::after {
+    transition: none;
+  }
+}

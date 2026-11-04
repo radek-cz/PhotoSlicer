@@ -1,0 +1,158 @@
+.image-gallery {
+  width: 100%;
+}
+
+
+/* =========================================
+   MAIN CAROUSEL
+   ========================================= */
+
+.image-gallery__viewport {
+  width: 100%;
+  overflow: hidden;
+  user-select: none;
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.image-gallery__viewport:active {
+  cursor: grabbing;
+}
+
+
+/*
+ * TO MUSI BYĆ FLEX.
+ * Embla przesuwa ten element.
+ */
+.image-gallery__container {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start;
+}
+
+
+/*
+ * Jeden slajd = szerokość jego zawartości.
+ * Dzięki temu obrazy są OBOK SIEBIE,
+ * a nie jeden pod drugim.
+ */
+.image-gallery__slide {
+  display: flex !important;
+  flex: 0 0 auto !important;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 0;
+
+  margin-right: 8px;
+}
+
+
+/*
+ * Główne zdjęcie.
+ */
+.image-gallery__image {
+  display: block;
+
+  width: auto;
+  height: auto;
+
+  max-width: 100%;
+  max-height: 100%;
+
+  object-fit: contain;
+
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+
+/* =========================================
+   THUMBNAILS
+   ========================================= */
+
+.image-gallery__thumb-viewport {
+  width: 100%;
+  margin-top: 8px;
+
+  overflow: hidden;
+  user-select: none;
+  touch-action: pan-y;
+}
+
+
+/*
+ * Miniatury również w jednej linii.
+ */
+.image-gallery__thumb-container {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center;
+
+  gap: 4px;
+}
+
+
+/*
+ * ZAWSZE 30x30.
+ */
+.image-gallery__thumb {
+  box-sizing: border-box;
+
+  display: block;
+
+  flex: 0 0 30px !important;
+
+  width: 30px !important;
+  height: 30px !important;
+
+  min-width: 30px;
+  min-height: 30px;
+
+  padding: 0;
+  margin: 0;
+
+  overflow: hidden;
+
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  opacity: 0.6;
+
+  transition:
+    opacity 150ms ease,
+    border-color 150ms ease;
+}
+
+.image-gallery__thumb:hover {
+  opacity: 1;
+}
+
+.image-gallery__thumb--selected {
+  border-color: currentColor;
+  opacity: 1;
+}
+
+
+/*
+ * Cały obraz musi zmieścić się w 30x30.
+ * Niczego nie przycinamy.
+ */
+.image-gallery__thumb img {
+  display: block;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  object-fit: contain;
+
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}

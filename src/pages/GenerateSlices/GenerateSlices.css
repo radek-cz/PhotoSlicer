@@ -1,0 +1,10 @@
+.workflow-draft-timer {
+  margin: 0;
+  padding: 6px 16px;
+  background: #fef3c7;
+  color: #78350f;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: right;
+}

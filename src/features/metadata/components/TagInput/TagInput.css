@@ -1,0 +1,45 @@
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tag-list li,
+.tag-entry {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tag-list li {
+  border-radius: 999px;
+  padding: 3px 8px;
+  background: #27272a;
+  color: #ddd6fe;
+}
+
+.tag-list button {
+  border: 0;
+  padding: 0 2px;
+  background: transparent;
+}
+
+.tag-entry input {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--metadata-border);
+  border-radius: 6px;
+  padding: 9px 10px;
+  color: var(--metadata-text);
+  background: var(--metadata-panel);
+  font: 13px/1.4 var(--sans);
+}
+
+.tag-entry button {
+  flex: 0 0 auto;
+}
