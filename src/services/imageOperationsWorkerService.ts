@@ -13,6 +13,7 @@ import type {
     GetRegionsResult,
     PingPongResult,
     GetAllPreviewSlicedImagesResult,
+    PhotoDetectionSettings,
 } from "../types/imageOperations";
 
 type WorkerErrorResponse = {
@@ -153,7 +154,8 @@ class ImageOperationsWorkerService {
     }
 
     async importAndAnalyzeImage(
-        buffer: ArrayBuffer
+        buffer: ArrayBuffer,
+        detectionSettings: PhotoDetectionSettings,
     ): Promise<LoadImageResult> {
         return this.send<
             Extract<
@@ -166,6 +168,7 @@ class ImageOperationsWorkerService {
                 taskType: "IMPORT_AND_ANALYZE_IMAGE",
                 payload: {
                     buffer,
+                    detectionSettings,
                 },
             },
             [buffer]
@@ -173,7 +176,8 @@ class ImageOperationsWorkerService {
     }
 
     async detectImageRegions(
-        imageId: string
+        imageId: string,
+        detectionSettings: PhotoDetectionSettings,
     ): Promise<FindRegionsResult> {
         return this.send<
             Extract<
@@ -185,6 +189,7 @@ class ImageOperationsWorkerService {
             taskType: "DETECT_IMAGE_REGIONS",
             payload: {
                 imageId,
+                detectionSettings,
             },
         });
     }

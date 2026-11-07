@@ -151,6 +151,32 @@
   color: #fafafa;
 }
 
+.header__settings {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid #3f3f46;
+  border-radius: 4px;
+  background: #1e1e22;
+  color: #c4b5fd;
+  font: inherit;
+  font-size: 16px;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.header__settings:hover {
+  border-color: #a78bfa;
+  background: #27232f;
+  color: #fafafa;
+}
+
 .header__divider {
   width: 1px;
   height: 16px;
@@ -192,7 +218,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .nav__step {
+  .nav__step,
+  .header__settings {
     transition: none;
   }
 }

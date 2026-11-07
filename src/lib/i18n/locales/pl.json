@@ -56,7 +56,8 @@
     "deleting": "Usuwanie...",
     "deleteConfirmation": "Usunąć lokalnie zapisaną sesję „{filename}”? Pobranego pliku ZIP to nie usunie.",
     "deleteError": "Nie udało się usunąć zapisanej sesji.",
-    "deleteSafeNote": "Usunięcie kasuje tylko wybraną sesję z lokalnego archiwum PhotoSlicer. Pobrany plik ZIP i bieżąca praca pozostają bez zmian."
+    "deleteSafeNote": "Usunięcie kasuje tylko wybraną sesję z lokalnego archiwum PhotoSlicer. Pobrany plik ZIP i bieżąca praca pozostają bez zmian.",
+    "settings": "Ustawienia czułości wykrywania"
   },
   "home": {
     "eyebrow": "PhotoSlicer · przepływ pracy",
@@ -214,7 +215,9 @@
       "accept": "Zatwierdź",
       "previous": "Poprzedni",
       "next": "Następny",
-      "generate": "Generuj podglądy",
+      "findEdges": "Znajdź krawędzie",
+      "findingEdges": "Wyszukiwanie krawędzi...",
+      "detectionError": "Nie udało się ponownie wykryć krawędzi.",
       "previewTitle": "Podgląd wycinków",
       "previewError": "Nie udało się wygenerować podglądów wycinków.",
       "previewLoading": "Przygotowywanie podglądów wycinków...",
@@ -224,6 +227,49 @@
       "deleteRegion": "Usuń region {index}",
       "deleteConfirmation": "Czy na pewno usunąć ten region?",
       "detectedCount": "Wykryte zdjęcia: {count}",
+      "settings": {
+        "title": "Czułość wykrywania zdjęć",
+        "description": "Zmiany zapisują się automatycznie na tym urządzeniu i będą używane przy kolejnych wykrywaniach.",
+        "close": "Zamknij ustawienia czułości wykrywania",
+        "done": "Gotowe",
+        "reset": "Przywróć domyślne",
+        "loadError": "Nie udało się odczytać zapisanych ustawień. Możesz przywrócić wartości domyślne.",
+        "saveError": "Nie udało się zapisać ustawień wykrywania.",
+        "fields": {
+          "morphKernelSize": {
+            "label": "Łączenie przerw w krawędziach",
+            "description": "Większa wartość mocniej łączy przerwane krawędzie."
+          },
+          "gaussianBlurSize": {
+            "label": "Wygładzanie obrazu",
+            "description": "Większa wartość mocniej wygładza obraz i ogranicza szum."
+          },
+          "cannyLowThreshold": {
+            "label": "Dolny próg Canny'ego",
+            "description": "Niższa wartość zwiększa wykrywanie słabych krawędzi."
+          },
+          "cannyHighThreshold": {
+            "label": "Górny próg Canny'ego",
+            "description": "Niższa wartość zwiększa czułość wykrywania krawędzi."
+          },
+          "minContourArea": {
+            "label": "Minimalny rozmiar wykrywanego obszaru",
+            "description": "Niższa wartość pozwala wykrywać mniejsze zdjęcia."
+          },
+          "approxPolyEpsilon": {
+            "label": "Uproszczenie konturu",
+            "description": "Niższa wartość zachowuje więcej szczegółów kształtu."
+          },
+          "minRectangularity": {
+            "label": "Minimalne podobieństwo do prostokąta",
+            "description": "Niższa wartość akceptuje mniej regularne kształty."
+          },
+          "maxAspectRatio": {
+            "label": "Maksymalna proporcja boków",
+            "description": "Wyższa wartość dopuszcza bardziej wydłużone zdjęcia."
+          }
+        }
+      },
       "imageError": "Nie udało się wczytać skanu.",
       "regionLabel": "Region #{index}",
       "save": {

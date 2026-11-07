@@ -189,7 +189,14 @@
   gap: 0.35rem;
 }
 
-.region-toolbar .region-toolbar__generate {
+.region-toolbar__actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-left: auto;
+}
+
+.region-toolbar .region-toolbar__find-edges {
   gap: 0.45rem;
   min-height: 2.125rem;
   padding-inline: 0.9rem;
@@ -198,8 +205,17 @@
   font-weight: 600;
 }
 
-.region-toolbar__generate:not(:disabled):hover {
+.region-toolbar__find-edges:not(:disabled):hover {
   background: #6d28d9;
+}
+
+.region-toolbar .region-toolbar__settings {
+  min-width: 2.125rem;
+  min-height: 2.125rem;
+  border-color: var(--editor-border);
+  background: var(--editor-surface-high);
+  color: var(--editor-text);
+  font-size: 1.1rem;
 }
 
 .region-toolbar button:focus-visible,
@@ -577,10 +593,6 @@
     margin-left: auto;
   }
 
-  .region-toolbar__generate {
-    margin-left: auto;
-  }
-
   .region-editor__footer {
     flex-wrap: wrap;
   }
@@ -644,7 +656,7 @@
     margin-left: 0;
   }
 
-  .region-toolbar__generate {
+  .region-toolbar__actions {
     margin: 0;
   }
 

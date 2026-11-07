@@ -51,7 +51,7 @@ export const CanvasImage = ({
     y: number;
   } | null>(null);
   const magnifierPointRef = useRef<Coord | null>(null);
-  const [regions, setRegions] = useState<Region[]>(currentImage.regions);
+  const regions = currentImage.regions;
   const regionsRef = useRef(regions);
   const workspaceRef = useRef<HTMLDivElement>(null);
   const viewportRef = useRef<HTMLDivElement>(null);
@@ -122,6 +122,10 @@ export const CanvasImage = ({
   }, [currentImage.blobUrl]);
 
   useEffect(() => {
+    regionsRef.current = regions;
+  }, [regions]);
+
+  useEffect(() => {
     const workspace = workspaceRef.current;
     const viewport = viewportRef.current;
     if (!image || !workspace || !viewport) return;
@@ -185,7 +189,6 @@ export const CanvasImage = ({
 
   const updateRegions = (nextRegions: Region[]) => {
     regionsRef.current = nextRegions;
-    setRegions(nextRegions);
     onRegionsChange(currentImage.imageId, nextRegions);
   };
 

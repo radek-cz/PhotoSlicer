@@ -22,7 +22,10 @@ export const importAndAnalyzeImage = async (
     scale: scaledImage.scale,
     reducedImage: scaledImage.scaledImage
   } as ProcessedImage;
-  const regions = await detectRegionsInImage(processedImage);
+  const regions = await detectRegionsInImage(
+    processedImage,
+    task.payload.detectionSettings,
+  );
   processedImage.regions = regions;
 
   processedImages.set(id, processedImage);
