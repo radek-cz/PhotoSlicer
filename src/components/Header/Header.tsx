@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { PhotoDetectionSettingsDialog } from "../PhotoDetectionSettings/PhotoDetectionSettings";
 import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
 import { useLocalization } from "../../lib/i18n/useLocalization";
 import {
@@ -18,6 +19,7 @@ const Header = () => {
   const requestedDraftId = new URLSearchParams(location.search).get("draft");
   const [availableThrough, setAvailableThrough] =
     useState<WorkflowStep>("upload");
+  const [settingsOpen, setSettingsOpen] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -61,7 +63,8 @@ const Header = () => {
         : null;
 
   return (
-    <header className="header">
+    <>
+      <header className="header">
       <div
         className="header__identity"
         role="group"
@@ -150,9 +153,23 @@ const Header = () => {
           {t("navigation.archives")}
         </Link>
         <span className="header__divider" aria-hidden="true" />
+        <button
+          type="button"
+          className="header__settings"
+          aria-label={t("archives.settings")}
+          title={t("archives.settings")}
+          onClick={() => setSettingsOpen(true)}
+        >
+          <span aria-hidden="true">⚙</span>
+        </button>
+        <span className="header__divider" aria-hidden="true" />
         <LanguageSwitcher />
       </div>
-    </header>
+      </header>
+      {settingsOpen && (
+        <PhotoDetectionSettingsDialog onClose={() => setSettingsOpen(false)} />
+      )}
+    </>
   );
 };
 

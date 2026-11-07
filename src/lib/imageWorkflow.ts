@@ -20,17 +20,20 @@ import {
   createEmptyImageMetadata,
   normalizeImageMetadata,
 } from "./imageMetadata";
+import { readPhotoDetectionSettings } from "./imageOperations/photoDetectionSettings";
 
 export async function importImageFiles(
   files: readonly File[],
 ): Promise<
   PromiseSettledResult<{ file: File; image: LoadImageResult }>[]
 > {
+  const detectionSettings = readPhotoDetectionSettings();
   return Promise.allSettled(
     files.map(async (file) => ({
       file,
       image: await imageOperationsWorkerService.importAndAnalyzeImage(
         await file.arrayBuffer(),
+        detectionSettings,
       ),
     })),
   );

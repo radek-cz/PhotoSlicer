@@ -126,7 +126,9 @@ const Archives = () => {
     <section className="archives-page" aria-labelledby="archives-title">
       <header className="archives-page__header">
         <p className="archives-page__eyebrow">{t("archives.eyebrow")}</p>
-        <h1 id="archives-title">{t("archives.title")}</h1>
+        <div className="archives-page__title-row">
+          <h1 id="archives-title">{t("archives.title")}</h1>
+        </div>
         <p>{t("archives.description")}</p>
       </header>
       {state.isLoading ? (

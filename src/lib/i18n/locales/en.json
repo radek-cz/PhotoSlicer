@@ -56,7 +56,8 @@
     "deleting": "Deleting...",
     "deleteConfirmation": "Delete the locally saved session “{filename}”? This will not remove a downloaded ZIP.",
     "deleteError": "Couldn't delete the saved session.",
-    "deleteSafeNote": "Deleting removes only the selected session from PhotoSlicer's local archive. Downloaded ZIP files and your current work are unchanged."
+    "deleteSafeNote": "Deleting removes only the selected session from PhotoSlicer's local archive. Downloaded ZIP files and your current work are unchanged.",
+    "settings": "Detection sensitivity settings"
   },
   "home": {
     "eyebrow": "PhotoSlicer · workflow",
@@ -214,7 +215,9 @@
       "accept": "Accept",
       "previous": "Previous",
       "next": "Next",
-      "generate": "Generate previews",
+      "findEdges": "Find edges",
+      "findingEdges": "Finding edges...",
+      "detectionError": "Couldn't detect edges again.",
       "previewTitle": "Preview images",
       "previewError": "Couldn't generate slice previews.",
       "previewLoading": "Preparing slice previews...",
@@ -224,6 +227,49 @@
       "deleteRegion": "Delete region {index}",
       "deleteConfirmation": "Are you sure you want to delete this region?",
       "detectedCount": "Detected photos: {count}",
+      "settings": {
+        "title": "Photo detection sensitivity",
+        "description": "Changes are saved automatically on this device and will be used for future detections.",
+        "close": "Close detection sensitivity settings",
+        "done": "Done",
+        "reset": "Restore defaults",
+        "loadError": "Couldn't read the saved settings. You can restore the defaults.",
+        "saveError": "Couldn't save the detection settings.",
+        "fields": {
+          "morphKernelSize": {
+            "label": "Connecting gaps in edges",
+            "description": "Higher values connect broken edges more strongly."
+          },
+          "gaussianBlurSize": {
+            "label": "Image smoothing",
+            "description": "Higher values smooth the image more and reduce noise."
+          },
+          "cannyLowThreshold": {
+            "label": "Canny lower threshold",
+            "description": "Lower values detect weaker edges more readily."
+          },
+          "cannyHighThreshold": {
+            "label": "Canny upper threshold",
+            "description": "Lower values increase edge sensitivity."
+          },
+          "minContourArea": {
+            "label": "Minimum detected region size",
+            "description": "Lower values allow smaller photos to be detected."
+          },
+          "approxPolyEpsilon": {
+            "label": "Contour simplification",
+            "description": "Lower values preserve more shape detail."
+          },
+          "minRectangularity": {
+            "label": "Minimum rectangle similarity",
+            "description": "Lower values accept less regular shapes."
+          },
+          "maxAspectRatio": {
+            "label": "Maximum side ratio",
+            "description": "Higher values allow more elongated photos."
+          }
+        }
+      },
       "imageError": "Couldn't load the scan.",
       "regionLabel": "Region #{index}",
       "save": {

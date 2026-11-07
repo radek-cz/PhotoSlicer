@@ -4,18 +4,21 @@ import type { PreviewImage } from "../../../../types/image";
 import { revokeObjectUrls } from "../../../../lib/browserImageOperations";
 import { generateSlicePreviewUrls } from "../../../../lib/imageWorkflow";
 import { useLocalization } from "../../../../lib/i18n/useLocalization";
+import { readPhotoDetectionSettings } from "../../../../lib/imageOperations/photoDetectionSettings";
 import { imageOperationsWorkerService } from "../../../../services/imageOperationsWorkerService";
 
 interface UseSelectRegionsProps {
   previewImages: PreviewImage[];
   onComplete: () => void;
   onStartImport: () => Promise<boolean>;
+  onRegionsChange: (imageId: string, regions: PreviewImage["regions"]) => void;
 }
 
 export const useSelectRegions = ({
   previewImages,
   onComplete,
   onStartImport,
+  onRegionsChange,
 }: UseSelectRegionsProps) => {
   const { t } = useLocalization();
   const navigate = useNavigate();
@@ -28,6 +31,8 @@ export const useSelectRegions = ({
   const [images, setImages] = useState<string[]>([]);
   const [hasPreviewError, setHasPreviewError] = useState(false);
   const [isGeneratingPreview, setIsGeneratingPreview] = useState(false);
+  const [isFindingEdges, setIsFindingEdges] = useState(false);
+  const [hasDetectionError, setHasDetectionError] = useState(false);
   const [hasSaveError, setHasSaveError] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [isCompleting, setIsCompleting] = useState(false);
@@ -85,6 +90,24 @@ export const useSelectRegions = ({
       }
     }
   }, []);
+
+  const findEdges = useCallback(async (image: PreviewImage) => {
+    setIsFindingEdges(true);
+    setHasDetectionError(false);
+    try {
+      const { regions } = await imageOperationsWorkerService.detectImageRegions(
+        image.imageId,
+        readPhotoDetectionSettings(),
+      );
+      await imageOperationsWorkerService.saveImageRegions(image.imageId, regions);
+      onRegionsChange(image.imageId, regions);
+    } catch (error) {
+      console.error("Couldn't detect edges in the current scan", error);
+      setHasDetectionError(true);
+    } finally {
+      setIsFindingEdges(false);
+    }
+  }, [onRegionsChange]);
 
   useEffect(() => {
     if (!currentImage) return;
@@ -183,6 +206,8 @@ export const useSelectRegions = ({
     images,
     hasPreviewError,
     isGeneratingPreview,
+    isFindingEdges,
+    hasDetectionError,
     hasSaveError,
     isSaving,
     isCompleting,
@@ -190,6 +215,7 @@ export const useSelectRegions = ({
     handleSaveFailure,
     handleSaveSuccess,
     refreshPreviews,
+    findEdges,
     navigateToImage,
     handleZoomChange,
     handleFit,

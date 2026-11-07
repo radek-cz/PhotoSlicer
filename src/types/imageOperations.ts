@@ -30,18 +30,29 @@ export interface ImageMetadata {
     topics?: string[];
 }
 
+export interface PhotoDetectionSettings {
+    morphKernelSize: number;
+    gaussianBlurSize: number;
+    cannyLowThreshold: number;
+    cannyHighThreshold: number;
+    minContourArea: number;
+    approxPolyEpsilon: number;
+    minRectangularity: number;
+    maxAspectRatio: number;
+}
+
 export type ImageOperationsWorkerType =
     | {
           taskId: string;
           taskType: "PING_WORKER";
-          payload: {
-          };
+          payload: Record<string, never>;
       }
     | {
           taskId: string;
           taskType: "IMPORT_AND_ANALYZE_IMAGE";
           payload: {
               buffer: ArrayBuffer;
+              detectionSettings: PhotoDetectionSettings;
           };
       }
     | {
@@ -49,6 +60,7 @@ export type ImageOperationsWorkerType =
           taskType: "DETECT_IMAGE_REGIONS";
           payload: {
               imageId: string;
+              detectionSettings: PhotoDetectionSettings;
           };
       }
     | {
@@ -77,8 +89,7 @@ export type ImageOperationsWorkerType =
     | {
           taskId: string;
           taskType: "GET_ALL_IMAGE_SLICE_PREVIEWS";
-          payload: {
-          };
+          payload: Record<string, never>;
       }
     | {
           taskId: string;
@@ -91,7 +102,7 @@ export type ImageOperationsWorkerType =
     | {
           taskId: string;
           taskType: "CLEAR_PROCESSED_IMAGES";
-          payload: {};
+          payload: Record<string, never>;
       };
 
 export type WorkerResponse =
@@ -167,4 +178,4 @@ export interface GenerateSlicedImagesResult {
     zip: Blob;
 }
 
-export interface ClearResult {}
+export type ClearResult = Record<string, never>;

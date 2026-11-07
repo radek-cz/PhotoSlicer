@@ -7,13 +7,15 @@ interface Props {
   zoom: number;
   gridVisible: boolean;
   isSaving: boolean;
-  isGeneratingPreview: boolean;
+  isFindingEdges: boolean;
+  isBusy: boolean;
+  onOpenSettings: () => void;
   onNavigate: (index: number) => void;
   onZoomChange: (zoom: number) => void;
   onZoomFit: () => void;
   onZoomReset: () => void;
   onGridToggle: () => void;
-  onGeneratePreview: () => void;
+  onFindEdges: () => void;
 }
 
 export const RegionEditorToolbar = ({
@@ -23,13 +25,15 @@ export const RegionEditorToolbar = ({
   zoom,
   gridVisible,
   isSaving,
-  isGeneratingPreview,
+  isFindingEdges,
+  isBusy,
+  onOpenSettings,
   onNavigate,
   onZoomChange,
   onZoomFit,
   onZoomReset,
   onGridToggle,
-  onGeneratePreview,
+  onFindEdges,
 }: Props) => {
   const { t } = useLocalization();
 
@@ -126,17 +130,30 @@ export const RegionEditorToolbar = ({
         </button>
       </div>
 
-      <button
-        className="region-toolbar__generate"
-        type="button"
-        onClick={onGeneratePreview}
-        disabled={isGeneratingPreview}
-      >
-        <span className="material-symbols-outlined" aria-hidden="true">
-          ▧
-        </span>
-        {t("image.regions.generate")}
-      </button>
+      <div className="region-toolbar__actions">
+        <button
+          className="region-toolbar__settings"
+          type="button"
+          aria-label={t("archives.settings")}
+          title={t("archives.settings")}
+          onClick={onOpenSettings}
+        >
+          <span aria-hidden="true">⚙</span>
+        </button>
+        <button
+          className="region-toolbar__find-edges"
+          type="button"
+          onClick={onFindEdges}
+          disabled={isBusy || isSaving}
+        >
+          <span className="material-symbols-outlined" aria-hidden="true">
+            ▧
+          </span>
+          {isFindingEdges
+            ? t("image.regions.findingEdges")
+            : t("image.regions.findEdges")}
+        </button>
+      </div>
     </div>
   );
 };

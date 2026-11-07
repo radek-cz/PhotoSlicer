@@ -1,4 +1,6 @@
 import type { PreviewImage } from "../../../../types/image";
+import { useState } from "react";
+import { PhotoDetectionSettingsDialog } from "../../../../components/PhotoDetectionSettings/PhotoDetectionSettings";
 import { useLocalization } from "../../../../lib/i18n/useLocalization";
 import { CanvasImage } from "../CanvasImage/CanvasImage";
 import { RegionEditorFooter } from "../RegionEditorFooter/RegionEditorFooter";
@@ -21,10 +23,12 @@ export const SelectRegions = ({
   onRegionsChange,
 }: Props) => {
   const { t } = useLocalization();
+  const [settingsOpen, setSettingsOpen] = useState(false);
   const editor = useSelectRegions({
     previewImages,
     onComplete,
     onStartImport,
+    onRegionsChange,
   });
   const { currentImage } = editor;
 
@@ -41,13 +45,15 @@ export const SelectRegions = ({
         zoom={editor.zoom}
         gridVisible={editor.gridVisible}
         isSaving={editor.isSaving}
-        isGeneratingPreview={editor.isGeneratingPreview}
+        isFindingEdges={editor.isFindingEdges}
+        isBusy={editor.isGeneratingPreview || editor.isFindingEdges}
+        onOpenSettings={() => setSettingsOpen(true)}
         onNavigate={(index) => void editor.navigateToImage(index)}
         onZoomChange={editor.handleZoomChange}
         onZoomFit={editor.handleFit}
         onZoomReset={() => editor.setZoom(1)}
         onGridToggle={() => editor.setGridVisible((visible) => !visible)}
-        onGeneratePreview={() => void editor.refreshPreviews(currentImage)}
+        onFindEdges={() => void editor.findEdges(currentImage)}
       />
 
       <div className="region-editor__workspace">
@@ -66,6 +72,11 @@ export const SelectRegions = ({
             {editor.hasPreviewError && (
               <p className="region-editor__error" role="alert">
                 {t("image.regions.previewError")}
+              </p>
+            )}
+            {editor.hasDetectionError && (
+              <p className="region-editor__error" role="alert">
+                {t("image.regions.detectionError")}
               </p>
             )}
             {editor.hasSaveError && (
@@ -105,6 +116,9 @@ export const SelectRegions = ({
       <div className="region-editor__attribution">
         {t("image.regions.attribution")}
       </div>
+      {settingsOpen && (
+        <PhotoDetectionSettingsDialog onClose={() => setSettingsOpen(false)} />
+      )}
     </section>
   );
 };
