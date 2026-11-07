@@ -260,6 +260,9 @@ export const CanvasImage = ({
           <span aria-hidden="true">＋</span>
           {t("image.regions.add")}
         </button>
+        <span className="canvas-image__snap-hint">
+          {t("image.regions.snapHint")}
+        </span>
         <span className="canvas-image__region-count" aria-live="polite">
           {t("image.regions.detectedCount", {
             count: regions.length,
