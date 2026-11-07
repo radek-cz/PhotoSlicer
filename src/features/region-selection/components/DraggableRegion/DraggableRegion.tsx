@@ -1,4 +1,4 @@
-import { Fragment, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import {
   Arrow,
   Circle,
@@ -21,6 +21,10 @@ import {
   updateRegionEdge,
   updateRegionPoint,
 } from "../../../../lib/canvasGeometry";
+import {
+  getAngleGuidePoints,
+  snapDeltaToAngle,
+} from "./angleSnapping";
 
 interface DraggableRegionProps {
   region: Region;
@@ -64,10 +68,15 @@ export const DraggableRegion = ({
 }: DraggableRegionProps) => {
   const [regionHovered, setRegionHovered] = useState(false);
   const [trashHovered, setTrashHovered] = useState(false);
+  const [snapGuide, setSnapGuide] = useState<number[] | null>(null);
   const regionGroup = useRef<KonvaGroup>(null);
+  const pointDragStart = useRef<Coord | null>(null);
   const points = getRegionPoints(region);
   const edgeDragStarts = useRef(
-    new Map<number, { origin: Coord; first: Coord; second: Coord }>(),
+    new Map<
+      number,
+      { origin: Coord; guideOrigin: Coord; first: Coord; second: Coord }
+    >(),
   );
   const regionDragStart = useRef<{
     origin: Coord;
@@ -94,6 +103,22 @@ export const DraggableRegion = ({
   );
 
   const showTrash = regionHovered || trashHovered;
+
+  useEffect(() => {
+    const clearGuideOnControlRelease = (event: KeyboardEvent) => {
+      if (event.key === "Control") {
+        setSnapGuide(null);
+      }
+    };
+    const clearGuideOnWindowBlur = () => setSnapGuide(null);
+
+    window.addEventListener("keyup", clearGuideOnControlRelease);
+    window.addEventListener("blur", clearGuideOnWindowBlur);
+    return () => {
+      window.removeEventListener("keyup", clearGuideOnControlRelease);
+      window.removeEventListener("blur", clearGuideOnWindowBlur);
+    };
+  }, []);
 
   const setCursor = (
     e: KonvaEventObject<MouseEvent>,
@@ -171,6 +196,16 @@ export const DraggableRegion = ({
           e.cancelBubble = true;
         }}
       />
+      {snapGuide && (
+        <Line
+          points={snapGuide}
+          stroke="#fef08a"
+          strokeWidth={2}
+          dash={[8, 6]}
+          opacity={0.9}
+          listening={false}
+        />
+      )}
 
       {/* EDGE HANDLES */}
       {REGION_EDGES.map(([firstIndex, secondIndex], edgeIndex) => {
@@ -203,9 +238,14 @@ export const DraggableRegion = ({
             onDragStart={(e) => {
               edgeDragStarts.current.set(edgeIndex, {
                 origin: { x: e.target.x(), y: e.target.y() },
+                guideOrigin: {
+                  x: (first.x + second.x) / 2,
+                  y: (first.y + second.y) / 2,
+                },
                 first,
                 second,
               });
+              setSnapGuide(null);
               onPointDragStart?.(firstIndex, { x, y });
               setCursor(e, "grabbing");
             }}
@@ -216,10 +256,36 @@ export const DraggableRegion = ({
               }
 
               const current = { x: e.target.x(), y: e.target.y() };
-              const delta = {
+              let delta = {
                 x: current.x - dragStart.origin.x,
                 y: current.y - dragStart.origin.y,
               };
+              let effectiveCurrent = current;
+
+              if (e.evt.ctrlKey) {
+                const snapped = snapDeltaToAngle(delta);
+                if (snapped) {
+                  delta = snapped.delta;
+                  effectiveCurrent = {
+                    x: dragStart.origin.x + delta.x,
+                    y: dragStart.origin.y + delta.y,
+                  };
+                  setSnapGuide(
+                    getAngleGuidePoints(
+                      dragStart.guideOrigin,
+                      snapped.angle,
+                      canvasWidth,
+                      canvasHeight,
+                    ),
+                  );
+                } else {
+                  setSnapGuide(null);
+                }
+              } else {
+                setSnapGuide(null);
+              }
+
+              e.target.position(effectiveCurrent);
 
               onChange?.(updateRegionEdge(
                 region,
@@ -234,10 +300,11 @@ export const DraggableRegion = ({
                   y: dragStart.second.y + delta.y,
                 },
               ));
-              onPointDragMove?.(firstIndex, current);
+              onPointDragMove?.(firstIndex, effectiveCurrent);
             }}
             onDragEnd={() => {
               edgeDragStarts.current.delete(edgeIndex);
+              setSnapGuide(null);
               onPointDragEnd?.();
             }}
           />
@@ -270,6 +337,8 @@ export const DraggableRegion = ({
               x: e.target.x(),
               y: e.target.y(),
             };
+            pointDragStart.current = currentPoint;
+            setSnapGuide(null);
 
             onPointDragStart?.(
               index,
@@ -278,10 +347,38 @@ export const DraggableRegion = ({
           } }
 
           onDragMove={(e) => {
-            const currentPoint = {
+            let currentPoint = {
               x: e.target.x(),
               y: e.target.y(),
             };
+            const dragStart = pointDragStart.current;
+
+            if (e.evt.ctrlKey && dragStart) {
+              const snapped = snapDeltaToAngle({
+                x: currentPoint.x - dragStart.x,
+                y: currentPoint.y - dragStart.y,
+              });
+              if (snapped) {
+                currentPoint = {
+                  x: dragStart.x + snapped.delta.x,
+                  y: dragStart.y + snapped.delta.y,
+                };
+                setSnapGuide(
+                  getAngleGuidePoints(
+                    dragStart,
+                    snapped.angle,
+                    canvasWidth,
+                    canvasHeight,
+                  ),
+                );
+              } else {
+                setSnapGuide(null);
+              }
+            } else {
+              setSnapGuide(null);
+            }
+
+            e.target.position(currentPoint);
 
             const nextRegion = updateRegionPoint(
               region,
@@ -299,6 +396,8 @@ export const DraggableRegion = ({
           } }
 
           onDragEnd={() => {
+            pointDragStart.current = null;
+            setSnapGuide(null);
             onPointDragEnd?.();
           } } />
         

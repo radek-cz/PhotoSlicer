@@ -220,6 +220,7 @@
       "previewLoading": "Przygotowywanie podglądów wycinków...",
       "previewAlt": "Podgląd wycinka {index}",
       "add": "Dodaj nowy region",
+      "snapHint": "Przytrzymaj Ctrl podczas przeciągania — przyciąganie co 15°",
       "deleteRegion": "Usuń region {index}",
       "deleteConfirmation": "Czy na pewno usunąć ten region?",
       "detectedCount": "Wykryte zdjęcia: {count}",
